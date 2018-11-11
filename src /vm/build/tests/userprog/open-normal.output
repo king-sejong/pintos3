@@ -1,0 +1,32 @@
+Copying tests/userprog/open-normal into /tmp/A5gInhabAp.dsk...
+Copying ../../tests/userprog/sample.txt into /tmp/A5gInhabAp.dsk...
+Writing command line to /tmp/W_hs_uVzSU.dsk...
+qemu-system-i386 -hda /tmp/W_hs_uVzSU.dsk -hdb /tmp/Tt2rJlyPa0.dsk -hdc /tmp/A5gInhabAp.dsk -hdd /tmp/y3z93K2tzy.dsk -m 4 -net none -nographic -monitor null
+Kernel command line: -q -f put open-normal put sample.txt run open-normal
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  471,040,000 loops/s.
+hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
+hd1:0: detected 99 sector (49 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
+Formatting file system...done.
+Boot complete.
+Putting 'open-normal' into the file system...
+Putting 'sample.txt' into the file system...
+Executing 'open-normal':
+(open-normal) begin
+(open-normal) end
+open-normal: exit(0)
+Execution of 'open-normal' complete.
+Timer: 61 ticks
+Thread: 3 idle ticks, 57 kernel ticks, 1 user ticks
+hd0:0: 0 reads, 0 writes
+hd0:1: 90 reads, 208 writes
+hd1:0: 99 reads, 0 writes
+hd1:1: 0 reads, 0 writes
+Console: 978 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...

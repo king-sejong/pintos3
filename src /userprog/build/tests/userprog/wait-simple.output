@@ -1,0 +1,33 @@
+Copying tests/userprog/wait-simple into /tmp/hCp4No2vYz.dsk...
+Copying tests/userprog/child-simple into /tmp/hCp4No2vYz.dsk...
+Writing command line to /tmp/dNDiCmWE2p.dsk...
+qemu-system-i386 -hda /tmp/dNDiCmWE2p.dsk -hdb /tmp/4LcCqeQDqM.dsk -hdc /tmp/hCp4No2vYz.dsk -m 4 -net none -nographic -monitor null
+Kernel command line: -q -f put wait-simple put child-simple run wait-simple
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  210,124,800 loops/s.
+hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
+hd1:0: detected 209 sector (104 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+Formatting file system...done.
+Boot complete.
+Putting 'wait-simple' into the file system...
+Putting 'child-simple' into the file system...
+Executing 'wait-simple':
+(wait-simple) begin
+(child-simple) run
+child-simple: exit(81)
+(wait-simple) wait(exec()) = 81
+(wait-simple) end
+wait-simple: exit(0)
+Execution of 'wait-simple' complete.
+Timer: 83 ticks
+Thread: 0 idle ticks, 82 kernel ticks, 1 user ticks
+hd0:0: 0 reads, 0 writes
+hd0:1: 128 reads, 428 writes
+hd1:0: 209 reads, 0 writes
+Console: 953 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...

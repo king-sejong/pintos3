@@ -1,0 +1,13 @@
+FAIL
+Kernel panic in run: PANIC at ../../lib/kernel/bitmap.c:299 in bitmap_scan(): assertion `b != NULL' failed.
+Call stack: 0xc01072d9 0xc01083f9 0xc0108709 0xc010d1f8 0xc010cd59 0xc010ce43 0xc010cef2 0xc0109b5b 0xc01010b4
+Translation of call stack:
+0xc01072d9: debug_panic (.../../lib/kernel/debug.c:34)
+0xc01083f9: bitmap_scan (..../lib/kernel/bitmap.c:300)
+0xc0108709: bitmap_scan_and_flip (..../lib/kernel/bitmap.c:323)
+0xc010d1f8: swap_out (.../build/../../vm/swap.c:23)
+0xc010cd59: clear_victim (...uild/../../vm/frame.c:145)
+0xc010ce43: find_victim (...uild/../../vm/frame.c:140)
+0xc010cef2: frame_allocate (...uild/../../vm/frame.c:104)
+0xc0109b5b: load_segment (...../userprog/process.c:613)
+0xc01010b4: kernel_thread (..../../threads/thread.c:547)
