@@ -1,0 +1,27 @@
+Copying tests/userprog/open-bad-ptr into /tmp/F0WzuakMku.dsk...
+Writing command line to /tmp/ziPIW1Kfx5.dsk...
+qemu-system-i386 -hda /tmp/ziPIW1Kfx5.dsk -hdb /tmp/w2EPWgOoej.dsk -hdc /tmp/F0WzuakMku.dsk -m 4 -net none -nographic -monitor null
+Kernel command line: -q -f put open-bad-ptr run open-bad-ptr
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
+hd1:0: detected 105 sector (52 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+Formatting file system...done.
+Boot complete.
+Putting 'open-bad-ptr' into the file system...
+Executing 'open-bad-ptr':
+(open-bad-ptr) begin
+open-bad-ptr: exit(-1)
+Execution of 'open-bad-ptr' complete.
+Timer: 64 ticks
+Thread: 0 idle ticks, 63 kernel ticks, 1 user ticks
+hd0:0: 0 reads, 0 writes
+hd0:1: 62 reads, 218 writes
+hd1:0: 105 reads, 0 writes
+Console: 803 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
