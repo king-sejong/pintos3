@@ -1,12 +1,12 @@
-Copying tests/vm/pt-write-code2 into /tmp/mBeHNq7Epv.dsk...
-Copying ../../tests/vm/sample.txt into /tmp/mBeHNq7Epv.dsk...
-Writing command line to /tmp/zUR96N28gG.dsk...
-qemu-system-i386 -hda /tmp/zUR96N28gG.dsk -hdb /tmp/R8AzgZs7fL.dsk -hdc /tmp/mBeHNq7Epv.dsk -hdd /tmp/DfKDnzea05.dsk -m 4 -net none -nographic -monitor null
+Copying tests/vm/pt-write-code2 into /tmp/rwv8zkNHOi.dsk...
+Copying ../../tests/vm/sample.txt into /tmp/rwv8zkNHOi.dsk...
+Writing command line to /tmp/zQyWKJDZwP.dsk...
+qemu-system-i386 -hda /tmp/zQyWKJDZwP.dsk -hdb /tmp/OXqu7j3K7J.dsk -hdc /tmp/rwv8zkNHOi.dsk -hdd /tmp/p__oQXrS6t.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put pt-write-code2 put sample.txt run pt-write-code2
 Pintos booting with 4,096 kB RAM...
 374 pages available in kernel pool.
 374 pages available in user pool.
-Calibrating timer...  144,793,600 loops/s.
+Calibrating timer...  194,764,800 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
 hd1:0: detected 108 sector (54 kB) disk, model "QEMU HARDDISK", serial "QM00003"
@@ -20,8 +20,8 @@ Executing 'pt-write-code2':
 (pt-write-code2) open "sample.txt"
 pt-write-code2: exit(-1)
 Execution of 'pt-write-code2' complete.
-Timer: 73 ticks
-Thread: 0 idle ticks, 72 kernel ticks, 1 user ticks
+Timer: 68 ticks
+Thread: 0 idle ticks, 68 kernel ticks, 0 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 95 reads, 226 writes
 hd1:0: 108 reads, 0 writes

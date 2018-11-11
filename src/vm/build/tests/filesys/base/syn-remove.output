@@ -1,11 +1,11 @@
-Copying tests/filesys/base/syn-remove into /tmp/R9_32rNzOK.dsk...
-Writing command line to /tmp/wtqBI7zuV8.dsk...
-qemu-system-i386 -hda /tmp/wtqBI7zuV8.dsk -hdb /tmp/3L0V4pN3Bj.dsk -hdc /tmp/R9_32rNzOK.dsk -hdd /tmp/iVrffCO1dl.dsk -m 4 -net none -nographic -monitor null
+Copying tests/filesys/base/syn-remove into /tmp/_PfEoFPnYG.dsk...
+Writing command line to /tmp/8Zvx9NJu_7.dsk...
+qemu-system-i386 -hda /tmp/8Zvx9NJu_7.dsk -hdb /tmp/T5D_uRQo2n.dsk -hdc /tmp/_PfEoFPnYG.dsk -hdd /tmp/NsEPkWDVwm.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put syn-remove run syn-remove
 Pintos booting with 4,096 kB RAM...
 374 pages available in kernel pool.
 374 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
+Calibrating timer...  244,531,200 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
 hd1:0: detected 110 sector (55 kB) disk, model "QEMU HARDDISK", serial "QM00003"
@@ -36,8 +36,8 @@ Executing 'syn-remove':
 (syn-remove) 110 bytes read starting at offset 0 in "deleteme" differ from expected: FAILED
 syn-remove: exit(1)
 Execution of 'syn-remove' complete.
-Timer: 74 ticks
-Thread: 0 idle ticks, 70 kernel ticks, 4 user ticks
+Timer: 72 ticks
+Thread: 0 idle ticks, 69 kernel ticks, 3 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 100 reads, 241 writes
 hd1:0: 110 reads, 0 writes

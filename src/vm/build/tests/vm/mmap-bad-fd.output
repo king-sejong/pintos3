@@ -1,11 +1,11 @@
-Copying tests/vm/mmap-bad-fd into /tmp/mQVSJirCcd.dsk...
-Writing command line to /tmp/tswQr0WDfD.dsk...
-qemu-system-i386 -hda /tmp/tswQr0WDfD.dsk -hdb /tmp/nyKbB27GP6.dsk -hdc /tmp/mQVSJirCcd.dsk -hdd /tmp/wS1Kx12mJ0.dsk -m 4 -net none -nographic -monitor null
+Copying tests/vm/mmap-bad-fd into /tmp/axs0mekcht.dsk...
+Writing command line to /tmp/QH3vhgl5v3.dsk...
+qemu-system-i386 -hda /tmp/QH3vhgl5v3.dsk -hdb /tmp/73uHuMq_ck.dsk -hdc /tmp/axs0mekcht.dsk -hdd /tmp/tI89aSKhDx.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put mmap-bad-fd run mmap-bad-fd
 Pintos booting with 4,096 kB RAM...
 374 pages available in kernel pool.
 374 pages available in user pool.
-Calibrating timer...  209,510,400 loops/s.
+Calibrating timer...  230,604,800 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
 hd1:0: detected 105 sector (52 kB) disk, model "QEMU HARDDISK", serial "QM00003"
@@ -19,8 +19,8 @@ Executing 'mmap-bad-fd':
 (mmap-bad-fd) try to mmap invalid fd: FAILED
 mmap-bad-fd: exit(1)
 Execution of 'mmap-bad-fd' complete.
-Timer: 63 ticks
-Thread: 0 idle ticks, 63 kernel ticks, 0 user ticks
+Timer: 70 ticks
+Thread: 0 idle ticks, 70 kernel ticks, 0 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 62 reads, 218 writes
 hd1:0: 105 reads, 0 writes

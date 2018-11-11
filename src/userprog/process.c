@@ -17,8 +17,10 @@
 #include "threads/palloc.h"
 #include "threads/thread.h"
 #include "threads/vaddr.h"
+#ifdef VM
 #include "vm/frame.h"
-
+#include "vm/page.h"
+#endif
 
 
 static thread_func start_process NO_RETURN;
@@ -96,7 +98,11 @@ start_process (void *f_name)
 
   //char str[strlen(file_name)+1];
 
-  
+  #ifdef VM
+
+  if (!page_table_init (&thread_current()->page_table))
+    exit(-1);
+  #endif 
   strlcpy(fn_copy1, f_name, strlen(f_name)+1);
   strlcpy(fn_copy2, f_name, strlen(f_name)+1);
   token = strtok_r(fn_copy1, " ", &next);
@@ -515,7 +521,6 @@ load (const char *file_name, void (**eip) (void), void **esp)
 
 /* load() helpers. */
 
-static bool install_page (void *upage, void *kpage, bool writable);
 
 /* Checks whether PHDR describes a valid, loadable segment in
    FILE and returns true if so, false otherwise. */
@@ -670,7 +675,7 @@ setup_stack (void **esp)
    with palloc_get_page().
    Returns true on success, false if UPAGE is already mapped or
    if memory allocation fails. */
-static bool
+bool
 install_page (void *upage, void *kpage, bool writable)
 {
   struct thread *t = thread_current ();

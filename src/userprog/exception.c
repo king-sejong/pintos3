@@ -5,6 +5,12 @@
 #include "threads/interrupt.h"
 #include "threads/thread.h"
 
+#ifdef VM
+#include <stdint.h>
+#include "vm/page.h"
+#include "userprog/pagedir.h"
+#include "threads/vaddr.h"
+#endif
 /* Number of page faults processed. */
 static long long page_fault_cnt;
 
@@ -151,7 +157,7 @@ page_fault (struct intr_frame *f)
 
   #ifdef VM
   bool success = false;
-  uint8_t *upage;
+  void *upage;
 
   
 
@@ -159,7 +165,7 @@ page_fault (struct intr_frame *f)
     upage = pg_round_down(fault_addr);
 
     struct thread * t = thread_current();
-    page = page_find (&t->page_table, upage);
+    struct page *page = page_find (&t->page_table, upage);
     if (page != NULL){
 
       if (page ->swapped){

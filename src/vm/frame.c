@@ -23,24 +23,6 @@ frame_init(void)
   hash_init (&frame_table, frame_hash, frame_less, NULL);
 
 }
-bool
-frame_install(void *kaddr, void *uaddr, struct thread *t)
-{
-  struct frame *f= malloc(sizeof(struct frame));
-  f->kaddr = kaddr;
-  f->uaddr = uaddr;
-  f->holder = t;
-
-  lock_acquire(&frame_lock);
-  struct hash_elem *e =  hash_insert(&frame_table, &f->hash_elem);
-  lock_release(&frame_lock);
-
-  if(!e)
-    return true;
-
-  free(f);
-  return false;
-}
 
 
 
@@ -97,7 +79,7 @@ frame_palloc_free_page (uint8_t *kpage)
 
   ASSERT(kpage != NULL);
 
-  struct frame * f = (struct frame *f)malloc(sizeof(struct frame));
+  struct frame * f = (struct frame *)malloc(sizeof(struct frame));
   f -> kpage = kpage;
   struct hash_elem *e = hash_delete(&frame_table, &(f->hash_elem));
   
@@ -109,8 +91,9 @@ frame_palloc_free_page (uint8_t *kpage)
   
 }
 
-struct frame *frame_lookup(void *kpage){
-	struct frame *f = (struct frame *f)malloc(sizeof (struct frame));
+struct frame *
+frame_lookup(void *kpage){
+	struct frame *f = (struct frame *)malloc(sizeof (struct frame));
 	f->kpage = kpage;
 	lock_acquire(&frame_lock);
 	struct hash_elem *e = hash_find(&frame_table, &(f->hash_elem));
@@ -121,18 +104,19 @@ struct frame *frame_lookup(void *kpage){
 	return hash_entry(e, struct frame, hash_elem);
 }
 
-struct frame *find_victim(void *kpage){
+struct frame *
+find_victim(void *kpage){
 	return NULL;
 }
 
 
 unsigned frame_hash(const struct hash_elem *fr, void *aux UNUSED){
-  struct frame*f = hashs_entry(fr, struct frame, hash_elem);
-  return hash_bytes (&f->kaddr, sizeof(f->kaddr));
+  struct frame* f = hash_entry(fr, struct frame, hash_elem);
+  return hash_bytes (&f->kpage, sizeof(f->kpage));
 }
 bool frame_less(const struct hash_elem *first, const struct hash_elem *second, void *aux UNUSED){
   const struct frame *f1 = hash_entry(first, struct frame, hash_elem);
   const struct frame *f2 = hash_entry(second, struct frame, hash_elem);
-  return f1->kaddr < f2->kaddr;
+  return f1->kpage < f2->kpage;
 }
 

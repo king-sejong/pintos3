@@ -1,11 +1,11 @@
-Copying tests/filesys/base/lg-random into /tmp/zmnmPaxnPB.dsk...
-Writing command line to /tmp/tjOCtZRAjJ.dsk...
-qemu-system-i386 -hda /tmp/tjOCtZRAjJ.dsk -hdb /tmp/5mdHw83fwU.dsk -hdc /tmp/zmnmPaxnPB.dsk -hdd /tmp/xe7wOHomM1.dsk -m 4 -net none -nographic -monitor null
+Copying tests/filesys/base/lg-random into /tmp/w4dWTE_Pzi.dsk...
+Writing command line to /tmp/OpkI1KBtY3.dsk...
+qemu-system-i386 -hda /tmp/OpkI1KBtY3.dsk -hdb /tmp/uzJJ8Z4Gjf.dsk -hdc /tmp/w4dWTE_Pzi.dsk -hdd /tmp/E4AzkwQz0s.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put lg-random run lg-random
 Pintos booting with 4,096 kB RAM...
 374 pages available in kernel pool.
 374 pages available in user pool.
-Calibrating timer...  104,755,200 loops/s.
+Calibrating timer...  279,347,200 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
 hd1:0: detected 111 sector (55 kB) disk, model "QEMU HARDDISK", serial "QM00003"
@@ -34,8 +34,8 @@ Executing 'lg-random':
 (lg-random) 256 bytes read starting at offset 16896 in "bazzle" differ from expected: FAILED
 lg-random: exit(1)
 Execution of 'lg-random' complete.
-Timer: 90 ticks
-Thread: 0 idle ticks, 64 kernel ticks, 26 user ticks
+Timer: 91 ticks
+Thread: 0 idle ticks, 67 kernel ticks, 24 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 392 reads, 684 writes
 hd1:0: 111 reads, 0 writes

@@ -1,12 +1,12 @@
-Copying tests/userprog/exec-multiple into /tmp/R9vI20pWRu.dsk...
-Copying tests/userprog/child-simple into /tmp/R9vI20pWRu.dsk...
-Writing command line to /tmp/D0xGVyekLz.dsk...
-qemu-system-i386 -hda /tmp/D0xGVyekLz.dsk -hdb /tmp/ZXImEp82J6.dsk -hdc /tmp/R9vI20pWRu.dsk -hdd /tmp/EHAQGyDRjv.dsk -m 4 -net none -nographic -monitor null
+Copying tests/userprog/exec-multiple into /tmp/9_mM7Thdg0.dsk...
+Copying tests/userprog/child-simple into /tmp/9_mM7Thdg0.dsk...
+Writing command line to /tmp/1_6UlDhLVH.dsk...
+qemu-system-i386 -hda /tmp/1_6UlDhLVH.dsk -hdb /tmp/tBeDg9ZI__.dsk -hdc /tmp/9_mM7Thdg0.dsk -hdd /tmp/iQm1idMegC.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put exec-multiple put child-simple run exec-multiple
 Pintos booting with 4,096 kB RAM...
 374 pages available in kernel pool.
 374 pages available in user pool.
-Calibrating timer...  104,755,200 loops/s.
+Calibrating timer...  224,870,400 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
 hd1:0: detected 209 sector (104 kB) disk, model "QEMU HARDDISK", serial "QM00003"
@@ -19,22 +19,18 @@ Executing 'exec-multiple':
 (exec-multiple) begin
 (child-simple) run
 child-simple: exit(81)
-(child-simple) run
-child-simple: exit(81)
-(child-simple) run
-child-simple: exit(81)
-(child-simple) run
-child-simple: exit(81)
-(exec-multiple) end
-exec-multiple: exit(0)
-Execution of 'exec-multiple' complete.
-Timer: 110 ticks
-Thread: 0 idle ticks, 107 kernel ticks, 3 user ticks
+Kernel PANIC at ../../userprog/pagedir.c:112 in pagedir_set_page(): assertion `pg_ofs (kpage) == 0' failed.
+Call stack: 0xc01072b9 0xc010a224 0xc0109217 0xc0109b52 0xc0101098.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 82 ticks
+Thread: 0 idle ticks, 81 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 245 reads, 428 writes
+hd0:1: 135 reads, 428 writes
 hd1:0: 209 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 1172 characters output
+Console: 1292 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...

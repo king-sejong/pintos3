@@ -1,12 +1,12 @@
-Copying tests/userprog/wait-simple into /tmp/tk8Kx8koaW.dsk...
-Copying tests/userprog/child-simple into /tmp/tk8Kx8koaW.dsk...
-Writing command line to /tmp/68_0Na5Xxt.dsk...
-qemu-system-i386 -hda /tmp/68_0Na5Xxt.dsk -hdb /tmp/7OyHuuJWlR.dsk -hdc /tmp/tk8Kx8koaW.dsk -hdd /tmp/xBJVmvrbto.dsk -m 4 -net none -nographic -monitor null
+Copying tests/userprog/wait-simple into /tmp/KMtKhUs6Fc.dsk...
+Copying tests/userprog/child-simple into /tmp/KMtKhUs6Fc.dsk...
+Writing command line to /tmp/cTihyLAvto.dsk...
+qemu-system-i386 -hda /tmp/cTihyLAvto.dsk -hdb /tmp/mTkn6b2h9h.dsk -hdc /tmp/KMtKhUs6Fc.dsk -hdd /tmp/BKPtYBZ9v1.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put wait-simple put child-simple run wait-simple
 Pintos booting with 4,096 kB RAM...
 374 pages available in kernel pool.
 374 pages available in user pool.
-Calibrating timer...  209,305,600 loops/s.
+Calibrating timer...  214,630,400 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
 hd1:0: detected 209 sector (104 kB) disk, model "QEMU HARDDISK", serial "QM00003"
@@ -23,8 +23,8 @@ child-simple: exit(81)
 (wait-simple) end
 wait-simple: exit(0)
 Execution of 'wait-simple' complete.
-Timer: 89 ticks
-Thread: 0 idle ticks, 89 kernel ticks, 0 user ticks
+Timer: 83 ticks
+Thread: 0 idle ticks, 82 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 128 reads, 428 writes
 hd1:0: 209 reads, 0 writes

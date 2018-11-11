@@ -1,6 +1,6 @@
-Copying tests/filesys/base/sm-seq-block into /tmp/hrjos7PnN5.dsk...
-Writing command line to /tmp/WwDW8rbMes.dsk...
-qemu-system-i386 -hda /tmp/WwDW8rbMes.dsk -hdb /tmp/h_XP3c6X9J.dsk -hdc /tmp/hrjos7PnN5.dsk -hdd /tmp/NWvqfEajZf.dsk -m 4 -net none -nographic -monitor null
+Copying tests/filesys/base/sm-seq-block into /tmp/eV4J1AgZ0V.dsk...
+Writing command line to /tmp/kTK34CQ9Fm.dsk...
+qemu-system-i386 -hda /tmp/kTK34CQ9Fm.dsk -hdb /tmp/slcxlfsYp0.dsk -hdc /tmp/eV4J1AgZ0V.dsk -hdd /tmp/6IeowUsd3a.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put sm-seq-block run sm-seq-block
 Pintos booting with 4,096 kB RAM...
 374 pages available in kernel pool.
@@ -25,8 +25,8 @@ Executing 'sm-seq-block':
 (sm-seq-block) end
 sm-seq-block: exit(0)
 Execution of 'sm-seq-block' complete.
-Timer: 66 ticks
-Thread: 0 idle ticks, 63 kernel ticks, 3 user ticks
+Timer: 65 ticks
+Thread: 0 idle ticks, 62 kernel ticks, 3 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 127 reads, 265 writes
 hd1:0: 109 reads, 0 writes

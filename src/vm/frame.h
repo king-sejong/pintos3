@@ -2,7 +2,7 @@
 #define VM_FRAME_H
 
 
-
+#include <hash.h>
 #include "threads/palloc.h"
 
 
@@ -20,7 +20,7 @@ struct frame {
 void frame_init (void);
 void * frame_palloc_get_page (enum palloc_flags flags, uint8_t * upage);
 void frame_palloc_free_page (uint8_t * kpage);
-struct frame * frame_lookup(uint8_t * kpage);
+struct frame * frame_lookup(void * kpage);
 struct frame * find_victim(void * kpage);
 
 unsigned frame_hash(const struct hash_elem *, void *);

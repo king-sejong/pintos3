@@ -1,6 +1,6 @@
-Copying tests/userprog/sc-boundary-2 into /tmp/VVShFMfEmS.dsk...
-Writing command line to /tmp/ex04N22dVC.dsk...
-qemu-system-i386 -hda /tmp/ex04N22dVC.dsk -hdb /tmp/6rPCuWFIIz.dsk -hdc /tmp/VVShFMfEmS.dsk -hdd /tmp/VWlwNa47aI.dsk -m 4 -net none -nographic -monitor null
+Copying tests/userprog/sc-boundary-2 into /tmp/86i7Sp4mq9.dsk...
+Writing command line to /tmp/GVQA7T7fV8.dsk...
+qemu-system-i386 -hda /tmp/GVQA7T7fV8.dsk -hdb /tmp/ZsCAcNzSoc.dsk -hdc /tmp/86i7Sp4mq9.dsk -hdd /tmp/eYKlDxmKTF.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put sc-boundary-2 run sc-boundary-2
 Pintos booting with 4,096 kB RAM...
 374 pages available in kernel pool.
@@ -17,8 +17,8 @@ Executing 'sc-boundary-2':
 (sc-boundary-2) begin
 sc-boundary-2: exit(67)
 Execution of 'sc-boundary-2' complete.
-Timer: 64 ticks
-Thread: 0 idle ticks, 63 kernel ticks, 1 user ticks
+Timer: 63 ticks
+Thread: 0 idle ticks, 63 kernel ticks, 0 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 63 reads, 224 writes
 hd1:0: 108 reads, 0 writes
