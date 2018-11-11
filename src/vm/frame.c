@@ -11,18 +11,38 @@
 #include "threads/vaddr.h"
 
 
-static struct list frame_table;
+static struct hash frame_table;
 static struct lock frame_lock;
 
 
 
 void
-init_frame()
+frame_init(void)
 {
   lock_init (&frame_lock);
-  list_init (&frame_table);
+  hash_init (&frame_table, frame_hash, frame_less, NULL);
 
 }
+bool
+frame_install(void *kaddr, void *uaddr, struct thread *t)
+{
+  struct frame *f= malloc(sizeof(struct frame));
+  f->kaddr = kaddr;
+  f->uaddr = uaddr;
+  f->holder = t;
+
+  lock_acquire(&frame_lock);
+  struct hash_elem *e =  hash_insert(&frame_table, &f->hash_elem);
+  lock_release(&frame_lock);
+
+  if(!e)
+    return true;
+
+  free(f);
+  return false;
+}
+
+
 
 void *
 frame_palloc_get_page(enum palloc_flags flags, uint8_t *upage)
@@ -31,21 +51,25 @@ frame_palloc_get_page(enum palloc_flags flags, uint8_t *upage)
   lock_acquire(&frame_lock);
 
   void * allocated_frame;
-  struct frame_table_entry * frame = malloc(sizeof(struct frame_table_entry));
+  struct frame * f = malloc(sizeof(struct frame));
   allocated_frame = palloc_get_page(PAL_USER | flags);
   if(allocated_frame == NULL){
 
     // there is no frame left. should do swap.
     return NULL;
   }
-  frame -> kpage = allocated_frame;
-  frame -> upage = upage;
-  frame -> allocated_thread = thread_current();
+  f -> kpage = allocated_frame;
+  f -> upage = upage;
+  f -> holder = thread_current();
   
-  list_push_back(&frame_table, &frame->e);
-  
+  struct hash_elem *e =  hash_insert(&frame_table, &f->hash_elem);
+  if (!e){
+    lock_release(&frame_lock);
+    return allocated_frame;
+  }
+  free(f);
   lock_release(&frame_lock);
-  return allocated_frame;
+  return hash_entry(e, struct frame, hash_elem);
 }
 /*
 void **
@@ -68,25 +92,47 @@ frame_palloc_get_multiple (enum palloc_flags flags ,size_t page_cnt)
 }*/
 
 void
-frame_palloc_free_page (uint8_t *page)
+frame_palloc_free_page (uint8_t *kpage)
 {
 
-  ASSERT(page != NULL);
+  ASSERT(kpage != NULL);
 
-  struct frame_table_entry * f = lookup_frame(page);
-  list_remove (&f->e);
-  palloc_free_page (page);
+  struct frame * f = (struct frame *f)malloc(sizeof(struct frame));
+  f -> kpage = kpage;
+  struct hash_elem *e = hash_delete(&frame_table, &(f->hash_elem));
+  
+  palloc_free_page (kpage);
   free (f);
+  if (!e)
+    return;
+  free(hash_entry(e, struct frame, hash_elem));
   
 }
 
-struct frame_table_entry *
-lookup_frame(uint8_t *page){
-  struct list_elem *e;
-  for (e = list_end(&frame_table); e = list_begin(&frame_table); e = list_prev(e)){
-    struct frame_table_entry * fte = list_entry(e,struct frame_table_entry, e);
-    if (fte -> kpage == page)
-      return fte;
-  }
-  return NULL;
+struct frame *frame_lookup(void *kpage){
+	struct frame *f = (struct frame *f)malloc(sizeof (struct frame));
+	f->kpage = kpage;
+	lock_acquire(&frame_lock);
+	struct hash_elem *e = hash_find(&frame_table, &(f->hash_elem));
+	lock_release(&frame_lock);	
+
+	if(e == NULL)
+		return NULL;
+	return hash_entry(e, struct frame, hash_elem);
 }
+
+struct frame *find_victim(void *kpage){
+	return NULL;
+}
+
+
+unsigned frame_hash(const struct hash_elem *fr, void *aux UNUSED){
+  struct frame*f = hashs_entry(fr, struct frame, hash_elem);
+  return hash_bytes (&f->kaddr, sizeof(f->kaddr));
+}
+bool frame_less(const struct hash_elem *first, const struct hash_elem *second, void *aux UNUSED){
+  const struct frame *f1 = hash_entry(first, struct frame, hash_elem);
+  const struct frame *f2 = hash_entry(second, struct frame, hash_elem);
+  return f1->kaddr < f2->kaddr;
+}
+
