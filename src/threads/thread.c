@@ -244,6 +244,9 @@ thread_create (const char *name, int priority,
   list_push_back (&running_thread()->child_proc, &t->elem_for_parent);
   t->running = false;
   t->exec_file = NULL;
+
+  #ifdef VM
+  #endif
   
   /* Stack frame for kernel_thread(). */
   kf = alloc_frame (t, sizeof *kf);
@@ -591,6 +594,10 @@ init_thread (struct thread *t, const char *name, int priority)
 
   list_init(&t->file_list);
   t-> fd_count=2;
+
+  #ifdef VM
+  page_table_init(&t->page_table);
+  #endif
 }
 
 /* Allocates a SIZE-byte frame at the top of thread T's stack and

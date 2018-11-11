@@ -100,7 +100,7 @@ main (void)
 
 
 #ifdef VM
-  init_frame();
+  frame_init();
 #endif
   /* Initialize interrupt handlers. */
   intr_init ();

@@ -162,7 +162,7 @@ page_fault (struct intr_frame *f)
     page = page_find (&t->page_table, upage);
     if (page != NULL){
 
-      if (page -> swapped){
+      if (page ->swapped){
 
         // success = get_swap_page(page);
       }
@@ -175,9 +175,9 @@ page_fault (struct intr_frame *f)
         }
         
       }
-    // case 1 file exist, but not loaded
-    // case 3 existed but swapped
-    // case 2 loaded, but not matched
+    // case 1 existed but swapped
+    // case 2 file exist, but not loaded
+    // case 3 file doesn't exist
    
       if (success) return;
     }

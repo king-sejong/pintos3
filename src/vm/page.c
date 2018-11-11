@@ -10,11 +10,13 @@ struct page
   struct thread * t;  
   bool dirty_bit;
   bool swapped;
-
   bool on_kmem;  
-  struct hash_elem elem_for_pt;i
 
+  struct file *file; 
+  off_t file_ofs;
   uint32_t read_bytes;
+
+  struct hash_elem hash_elem;
 };
 
 
@@ -42,14 +44,14 @@ page_create(void * kaddr, void * uaddr)
   bool swapped = false;
   bool on_kmem = true;
 
-  struct hash_elem *he = hash_insert (&curr -> page_table, &p->elem_for_pt);
+  struct hash_elem *he = hash_insert (&curr -> page_table, &p->hash_elem);
   if (he == NULL){
     // insert ok.
     return NULL
   }
   // already there?
   free(p);
-  return hash_entry(he, struct page, elem_for_pt);
+  return hash_entry(he, struct page, hash_elem);
 }
 
 
@@ -61,10 +63,10 @@ page_find(struct hash *page_table,void* upage)
   struct hash_elem *e;
 
   p -> upage = upage;
-  e = hash_find (page_table, &(p->elem_for_pt));
+  e = hash_find (page_table, &(p->hash_elem));
   if (e == NULL)
     return NULL;
-  return hash_entry (e, struct page, elem_for_pt); 
+  return hash_entry (e, struct page, hash_elem); 
 
 
 }
@@ -72,7 +74,7 @@ page_find(struct hash *page_table,void* upage)
 static unsigned
 page_hash(struct hash_elem *he)
 {
-  struct page * p = hash_entry(elem, struct page, elem_for_pt);
+  struct page * p = hash_entry(elem, struct page, hash_elem);
   return hash_int((int)p->upage);
 }
 
@@ -117,7 +119,16 @@ page_file_load(struct page * p)
 bool
 page_set_zero(struct page * p)
 {
+  kpage = frame_palloc_get_page(PAL_ZERO, p->upage);
+  if (kpage){
+    return false;
+  }
+  if (!install_page(p->upage, p->kpage, p->writable)){
+    frame_palloc_free_page9(kpage);
+    return false;
+  }
   
+  return true;
 }
 
 
