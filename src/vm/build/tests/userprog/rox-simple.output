@@ -1,14 +1,14 @@
-Copying tests/userprog/rox-simple into /tmp/8NfauNNEiG.dsk...
-Writing command line to /tmp/VQ7YNytTBG.dsk...
-qemu-system-i386 -hda /tmp/VQ7YNytTBG.dsk -hdb /tmp/AE1NxcLBNu.dsk -hdc /tmp/8NfauNNEiG.dsk -hdd /tmp/Z15lBx8S9i.dsk -m 4 -net none -nographic -monitor null
+Copying tests/userprog/rox-simple into /tmp/TANFGNZt43.dsk...
+Writing command line to /tmp/shMXuE1LIS.dsk...
+qemu-system-i386 -hda /tmp/shMXuE1LIS.dsk -hdb /tmp/_lpQN0DdTy.dsk -hdc /tmp/TANFGNZt43.dsk -hdd /tmp/R_9GZ6n9iq.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put rox-simple run rox-simple
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  270,336,000 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  471,040,000 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 106 sector (53 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 98 sector (49 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -21,13 +21,13 @@ Executing 'rox-simple':
 (rox-simple) end
 rox-simple: exit(0)
 Execution of 'rox-simple' complete.
-Timer: 70 ticks
-Thread: 0 idle ticks, 70 kernel ticks, 0 user ticks
+Timer: 64 ticks
+Thread: 2 idle ticks, 61 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 66 reads, 220 writes
-hd1:0: 106 reads, 0 writes
+hd0:1: 63 reads, 204 writes
+hd1:0: 98 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 1013 characters output
+Console: 1011 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...

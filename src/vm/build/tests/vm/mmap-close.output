@@ -1,15 +1,15 @@
-Copying tests/vm/mmap-close into /tmp/GHayApyFLx.dsk...
-Copying ../../tests/vm/sample.txt into /tmp/GHayApyFLx.dsk...
-Writing command line to /tmp/_qGU8w_ODY.dsk...
-qemu-system-i386 -hda /tmp/_qGU8w_ODY.dsk -hdb /tmp/z5i6gEaV3d.dsk -hdc /tmp/GHayApyFLx.dsk -hdd /tmp/cnnSEgSesR.dsk -m 4 -net none -nographic -monitor null
+Copying tests/vm/mmap-close into /tmp/k8xwu6BFgw.dsk...
+Copying ../../tests/vm/sample.txt into /tmp/k8xwu6BFgw.dsk...
+Writing command line to /tmp/9Ajs99zKhL.dsk...
+qemu-system-i386 -hda /tmp/9Ajs99zKhL.dsk -hdb /tmp/U2Axf2Jq18.dsk -hdc /tmp/k8xwu6BFgw.dsk -hdd /tmp/oQa76wwoJV.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put mmap-close put sample.txt run mmap-close
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  212,992,000 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  471,040,000 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 111 sector (55 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 103 sector (51 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -21,13 +21,13 @@ Executing 'mmap-close':
 (mmap-close) mmap "sample.txt"
 mmap-close: exit(-1)
 Execution of 'mmap-close' complete.
-Timer: 72 ticks
-Thread: 0 idle ticks, 72 kernel ticks, 0 user ticks
+Timer: 61 ticks
+Thread: 4 idle ticks, 57 kernel ticks, 0 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 102 reads, 232 writes
-hd1:0: 111 reads, 0 writes
+hd0:1: 99 reads, 216 writes
+hd1:0: 103 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 1019 characters output
+Console: 1018 characters output
 Keyboard: 0 keys pressed
 Exception: 1 page faults
 Powering off...

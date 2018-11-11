@@ -1,15 +1,15 @@
-Copying tests/filesys/base/syn-write into /tmp/mduDSnA_E6.dsk...
-Copying tests/filesys/base/child-syn-wrt into /tmp/mduDSnA_E6.dsk...
-Writing command line to /tmp/kxwspYePHC.dsk...
-qemu-system-i386 -hda /tmp/kxwspYePHC.dsk -hdb /tmp/_L3u55ac7T.dsk -hdc /tmp/mduDSnA_E6.dsk -hdd /tmp/QuYPVK2PGm.dsk -m 4 -net none -nographic -monitor null
+Copying tests/filesys/base/syn-write into /tmp/KtMNQ09rJ1.dsk...
+Copying tests/filesys/base/child-syn-wrt into /tmp/KtMNQ09rJ1.dsk...
+Writing command line to /tmp/HYVw7x40VH.dsk...
+qemu-system-i386 -hda /tmp/HYVw7x40VH.dsk -hdb /tmp/0j6oM746hC.dsk -hdc /tmp/KtMNQ09rJ1.dsk -hdd /tmp/ums2nvLMFP.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put syn-write put child-syn-wrt run syn-write
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  209,510,400 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  471,040,000 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 230 sector (115 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 213 sector (106 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -19,20 +19,35 @@ Executing 'syn-write':
 (syn-write) begin
 (syn-write) create "stuff"
 (syn-write) exec child 1 of 10: "child-syn-wrt 0"
-child-syn-wrt: exit(0)
 (syn-write) exec child 2 of 10: "child-syn-wrt 1"
-Kernel PANIC at ../../userprog/pagedir.c:112 in pagedir_set_page(): assertion `pg_ofs (kpage) == 0' failed.
-Call stack: 0xc01072b9 0xc010a224 0xc0109217 0xc0109b52 0xc0101098.
-The `backtrace' program can make call stacks useful.
-Read "Backtraces" in the "Debugging Tools" chapter
-of the Pintos documentation for more information.
-Timer: 75 ticks
-Thread: 0 idle ticks, 73 kernel ticks, 2 user ticks
+child-syn-wrt: exit(-1)
+(syn-write) exec child 3 of 10: "child-syn-wrt 2"
+child-syn-wrt: exit(-1)
+(syn-write) exec child 4 of 10: "child-syn-wrt 3"
+child-syn-wrt: exit(-1)
+(syn-write) exec child 5 of 10: "child-syn-wrt 4"
+child-syn-wrt: exit(-1)
+(syn-write) exec child 6 of 10: "child-syn-wrt 5"
+child-syn-wrt: exit(-1)
+(syn-write) exec child 7 of 10: "child-syn-wrt 6"
+child-syn-wrt: exit(-1)
+(syn-write) exec child 8 of 10: "child-syn-wrt 7"
+child-syn-wrt: exit(-1)
+(syn-write) exec child 9 of 10: "child-syn-wrt 8"
+child-syn-wrt: exit(-1)
+(syn-write) exec child 10 of 10: "child-syn-wrt 9"
+child-syn-wrt: exit(-1)
+(syn-write) wait for child 1 of 10 returned -1 (expected 0)
+(syn-write) wait for child 1 of 10 returned -1 (expected 0): FAILED
+syn-write: exit(1)
+Execution of 'syn-write' complete.
+Timer: 72 ticks
+Thread: 7 idle ticks, 60 kernel ticks, 5 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 165 reads, 486 writes
-hd1:0: 230 reads, 0 writes
+hd0:1: 478 reads, 450 writes
+hd1:0: 213 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 1382 characters output
+Console: 1828 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...

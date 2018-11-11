@@ -1,14 +1,14 @@
-Copying tests/filesys/base/sm-create into /tmp/BEar3rWH9t.dsk...
-Writing command line to /tmp/_il8wEfSaG.dsk...
-qemu-system-i386 -hda /tmp/_il8wEfSaG.dsk -hdb /tmp/pq00hLdOhC.dsk -hdc /tmp/BEar3rWH9t.dsk -hdd /tmp/_QMaRqhmOF.dsk -m 4 -net none -nographic -monitor null
+Copying tests/filesys/base/sm-create into /tmp/yPUvzehKei.dsk...
+Writing command line to /tmp/qON4CiXbz1.dsk...
+qemu-system-i386 -hda /tmp/qON4CiXbz1.dsk -hdb /tmp/0tx5ifhS2d.dsk -hdc /tmp/yPUvzehKei.dsk -hdd /tmp/x6HaUDwmah.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put sm-create run sm-create
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  209,510,400 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  458,752,000 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 109 sector (54 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 100 sector (50 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -22,13 +22,13 @@ Executing 'sm-create':
 (sm-create) end
 sm-create: exit(0)
 Execution of 'sm-create' complete.
-Timer: 63 ticks
-Thread: 0 idle ticks, 61 kernel ticks, 2 user ticks
+Timer: 69 ticks
+Thread: 4 idle ticks, 64 kernel ticks, 2 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 101 reads, 242 writes
-hd1:0: 109 reads, 0 writes
+hd0:1: 98 reads, 224 writes
+hd1:0: 100 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 1049 characters output
+Console: 1048 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...

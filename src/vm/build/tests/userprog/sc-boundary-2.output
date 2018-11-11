@@ -1,14 +1,14 @@
-Copying tests/userprog/sc-boundary-2 into /tmp/86i7Sp4mq9.dsk...
-Writing command line to /tmp/GVQA7T7fV8.dsk...
-qemu-system-i386 -hda /tmp/GVQA7T7fV8.dsk -hdb /tmp/ZsCAcNzSoc.dsk -hdc /tmp/86i7Sp4mq9.dsk -hdd /tmp/eYKlDxmKTF.dsk -m 4 -net none -nographic -monitor null
+Copying tests/userprog/sc-boundary-2 into /tmp/TTiFX2dlJg.dsk...
+Writing command line to /tmp/aHDs4CLg22.dsk...
+qemu-system-i386 -hda /tmp/aHDs4CLg22.dsk -hdb /tmp/7NeT3VkwgU.dsk -hdc /tmp/TTiFX2dlJg.dsk -hdd /tmp/4UjMZDA4jT.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put sc-boundary-2 run sc-boundary-2
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  209,510,400 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  464,486,400 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 108 sector (54 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 100 sector (50 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -17,11 +17,11 @@ Executing 'sc-boundary-2':
 (sc-boundary-2) begin
 sc-boundary-2: exit(67)
 Execution of 'sc-boundary-2' complete.
-Timer: 63 ticks
-Thread: 0 idle ticks, 63 kernel ticks, 0 user ticks
+Timer: 62 ticks
+Thread: 4 idle ticks, 58 kernel ticks, 0 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 63 reads, 224 writes
-hd1:0: 108 reads, 0 writes
+hd0:1: 60 reads, 208 writes
+hd1:0: 100 reads, 0 writes
 hd1:1: 0 reads, 0 writes
 Console: 917 characters output
 Keyboard: 0 keys pressed

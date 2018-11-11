@@ -1,9 +1,2 @@
 FAIL
-Kernel panic in run: PANIC at ../../userprog/pagedir.c:112 in pagedir_set_page(): assertion `pg_ofs (kpage) == 0' failed.
-Call stack: 0xc01072b9 0xc010a224 0xc0109217 0xc0109b52 0xc0101098
-Translation of call stack:
-0xc01072b9: debug_panic (.../../lib/kernel/debug.c:34)
-0xc010a224: pagedir_set_page (...../userprog/pagedir.c:113)
-0xc0109217: install_page (...../userprog/process.c:685)
-0xc0109b52: load_segment (...../userprog/process.c:629)
-0xc0101098: kernel_thread (..../../threads/thread.c:547)
+run: wait for child 1 of 10 returned -1 (expected 0): FAILED

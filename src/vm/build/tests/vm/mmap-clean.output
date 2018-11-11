@@ -1,15 +1,15 @@
-Copying tests/vm/mmap-clean into /tmp/YPaGK9jPR6.dsk...
-Copying ../../tests/vm/sample.txt into /tmp/YPaGK9jPR6.dsk...
-Writing command line to /tmp/qRWBYyE7yd.dsk...
-qemu-system-i386 -hda /tmp/qRWBYyE7yd.dsk -hdb /tmp/Cw17isyw6m.dsk -hdc /tmp/YPaGK9jPR6.dsk -hdd /tmp/tZ9zlG9d81.dsk -m 4 -net none -nographic -monitor null
+Copying tests/vm/mmap-clean into /tmp/DMOjQNaGnY.dsk...
+Copying ../../tests/vm/sample.txt into /tmp/DMOjQNaGnY.dsk...
+Writing command line to /tmp/MhwF77ZMjI.dsk...
+qemu-system-i386 -hda /tmp/MhwF77ZMjI.dsk -hdb /tmp/BATSglhJX2.dsk -hdc /tmp/DMOjQNaGnY.dsk -hdd /tmp/jLpBrjklzo.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put mmap-clean put sample.txt run mmap-clean
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  213,811,200 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  471,040,000 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 112 sector (56 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 104 sector (52 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -21,11 +21,11 @@ Executing 'mmap-clean':
 (mmap-clean) mmap "sample.txt"
 mmap-clean: exit(-1)
 Execution of 'mmap-clean' complete.
-Timer: 71 ticks
-Thread: 0 idle ticks, 70 kernel ticks, 1 user ticks
+Timer: 63 ticks
+Thread: 1 idle ticks, 62 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 104 reads, 234 writes
-hd1:0: 112 reads, 0 writes
+hd0:1: 101 reads, 218 writes
+hd1:0: 104 reads, 0 writes
 hd1:1: 0 reads, 0 writes
 Console: 1019 characters output
 Keyboard: 0 keys pressed

@@ -560,7 +560,7 @@ validate_segment (const struct Elf32_Phdr *phdr, struct file *file)
      it then user code that passed a null pointer to system calls
      could quite likely panic the kernel by way of null pointer
      assertions in memcpy(), etc. */
-  if (phdr->p_offset < PGSIZE)
+  if (phdr->p_vaddr < PGSIZE)
     return false;
 
   /* It's okay. */
@@ -605,7 +605,7 @@ load_segment (struct file *file, off_t ofs, uint8_t *upage,
       #endif
   
       #ifdef VM 
-      kpage = frame_palloc_get_page (PAL_USER, upage);
+      kpage = frame_allocate (PAL_USER, upage);
       #endif
 
       //printf("kpage : %p\n", kpage);
@@ -619,7 +619,7 @@ load_segment (struct file *file, off_t ofs, uint8_t *upage,
           //palloc_free_page (kpage);
 
           #ifdef VM 
-          frame_palloc_free_page (kpage);
+          frame_delete (kpage);
           #endif
           return false; 
         }
@@ -632,7 +632,7 @@ load_segment (struct file *file, off_t ofs, uint8_t *upage,
           palloc_free_page (kpage);
           #endif
           #ifdef VM 
-          frame_palloc_free_page (kpage);
+          frame_delete (kpage);
           #endif
           return false; 
         }

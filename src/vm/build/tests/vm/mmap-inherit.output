@@ -1,16 +1,16 @@
-Copying tests/vm/mmap-inherit into /tmp/uEUcufcfBl.dsk...
-Copying ../../tests/vm/sample.txt into /tmp/uEUcufcfBl.dsk...
-Copying tests/vm/child-inherit into /tmp/uEUcufcfBl.dsk...
-Writing command line to /tmp/tXe6KAPwoQ.dsk...
-qemu-system-i386 -hda /tmp/tXe6KAPwoQ.dsk -hdb /tmp/QAOvCFuMMN.dsk -hdc /tmp/uEUcufcfBl.dsk -hdd /tmp/m_582yuusF.dsk -m 4 -net none -nographic -monitor null
+Copying tests/vm/mmap-inherit into /tmp/FW_5ZiT9bf.dsk...
+Copying ../../tests/vm/sample.txt into /tmp/FW_5ZiT9bf.dsk...
+Copying tests/vm/child-inherit into /tmp/FW_5ZiT9bf.dsk...
+Writing command line to /tmp/I9NIJDU3Li.dsk...
+qemu-system-i386 -hda /tmp/I9NIJDU3Li.dsk -hdb /tmp/JrRhL_2rlC.dsk -hdc /tmp/FW_5ZiT9bf.dsk -hdd /tmp/_d_B1lwTh_.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put mmap-inherit put sample.txt put child-inherit run mmap-inherit
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  212,172,800 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  471,040,000 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 219 sector (109 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 202 sector (101 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -23,11 +23,11 @@ Executing 'mmap-inherit':
 (mmap-inherit) mmap "sample.txt"
 mmap-inherit: exit(-1)
 Execution of 'mmap-inherit' complete.
-Timer: 82 ticks
-Thread: 0 idle ticks, 81 kernel ticks, 1 user ticks
+Timer: 69 ticks
+Thread: 5 idle ticks, 62 kernel ticks, 2 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 132 reads, 450 writes
-hd1:0: 219 reads, 0 writes
+hd0:1: 129 reads, 416 writes
+hd1:0: 202 reads, 0 writes
 hd1:1: 0 reads, 0 writes
 Console: 1104 characters output
 Keyboard: 0 keys pressed

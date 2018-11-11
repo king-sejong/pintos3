@@ -1,14 +1,14 @@
-Copying tests/userprog/open-missing into /tmp/PcKL9Zns6V.dsk...
-Writing command line to /tmp/naahYzGBdY.dsk...
-qemu-system-i386 -hda /tmp/naahYzGBdY.dsk -hdb /tmp/ewj83XYejc.dsk -hdc /tmp/PcKL9Zns6V.dsk -hdd /tmp/8VFhQkWfki.dsk -m 4 -net none -nographic -monitor null
+Copying tests/userprog/open-missing into /tmp/w7DAtzAnSm.dsk...
+Writing command line to /tmp/vtXgNJFMMZ.dsk...
+qemu-system-i386 -hda /tmp/vtXgNJFMMZ.dsk -hdb /tmp/2hlnVmDvpt.dsk -hdc /tmp/w7DAtzAnSm.dsk -hdd /tmp/oPpi1dzwS5.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put open-missing run open-missing
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  208,691,200 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  431,718,400 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 105 sector (52 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 97 sector (48 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -18,13 +18,13 @@ Executing 'open-missing':
 (open-missing) end
 open-missing: exit(0)
 Execution of 'open-missing' complete.
-Timer: 64 ticks
-Thread: 0 idle ticks, 64 kernel ticks, 0 user ticks
+Timer: 66 ticks
+Thread: 2 idle ticks, 63 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 79 reads, 218 writes
-hd1:0: 105 reads, 0 writes
+hd0:1: 76 reads, 202 writes
+hd1:0: 97 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 928 characters output
+Console: 926 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...

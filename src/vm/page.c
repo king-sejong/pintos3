@@ -78,7 +78,7 @@ page_file_load(struct page * p)
   void * kpage;
   bool success;
   if (p->read_bytes >0 ){
-    kpage = frame_palloc_get_page(0, p->upage);
+    kpage = frame_allocate(0, p->upage);
     off_t read_bytes = file_read_at(p -> file, kpage, p->read_bytes, p->file_ofs);  
     
     if(read_bytes != p->read_bytes)
@@ -87,7 +87,7 @@ page_file_load(struct page * p)
     memset (kpage + read_bytes, 0 , PGSIZE - read_bytes);
   }
   else if (p->read_bytes ==0 ){
-    kpage = frame_palloc_get_page(PAL_ZERO, p->upage);
+    kpage = frame_allocate(PAL_ZERO, p->upage);
     if (kpage == NULL)
       goto done;
   }
@@ -97,7 +97,7 @@ page_file_load(struct page * p)
   return true;
   done :
     if (kpage != NULL)
-      frame_palloc_free_page(kpage);
+      frame_delete(kpage);
     return false;
   
 }
@@ -105,12 +105,12 @@ page_file_load(struct page * p)
 bool
 page_set_zero(struct page * p)
 {
-  void * kpage = frame_palloc_get_page(PAL_ZERO, p->upage);
+  void * kpage = frame_allocate(PAL_ZERO, p->upage);
   if (kpage){
     return false;
   }
   if (!install_page(p->upage, p->kpage, p->writable)){
-    frame_palloc_free_page(kpage);
+    frame_delete(kpage);
     return false;
   }
   

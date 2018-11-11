@@ -1,15 +1,15 @@
-Copying tests/userprog/close-normal into /tmp/LReU3QDGIO.dsk...
-Copying ../../tests/userprog/sample.txt into /tmp/LReU3QDGIO.dsk...
-Writing command line to /tmp/TMLXQ60IN3.dsk...
-qemu-system-i386 -hda /tmp/TMLXQ60IN3.dsk -hdb /tmp/0TFClPFEeh.dsk -hdc /tmp/LReU3QDGIO.dsk -hdd /tmp/LV1LOkD28Q.dsk -m 4 -net none -nographic -monitor null
+Copying tests/userprog/close-normal into /tmp/h4G0N1OUQV.dsk...
+Copying ../../tests/userprog/sample.txt into /tmp/h4G0N1OUQV.dsk...
+Writing command line to /tmp/3sKoNf0jA0.dsk...
+qemu-system-i386 -hda /tmp/3sKoNf0jA0.dsk -hdb /tmp/Oq9rClj4YK.dsk -hdc /tmp/h4G0N1OUQV.dsk -hdd /tmp/MtdeMBmrFO.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put close-normal put sample.txt run close-normal
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  209,510,400 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  444,825,600 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 107 sector (53 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 99 sector (49 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -23,12 +23,12 @@ Executing 'close-normal':
 close-normal: exit(0)
 Execution of 'close-normal' complete.
 Timer: 63 ticks
-Thread: 0 idle ticks, 62 kernel ticks, 1 user ticks
+Thread: 3 idle ticks, 59 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 93 reads, 224 writes
-hd1:0: 107 reads, 0 writes
+hd0:1: 90 reads, 208 writes
+hd1:0: 99 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 1055 characters output
+Console: 1053 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...

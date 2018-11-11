@@ -1,14 +1,14 @@
-Copying tests/userprog/exec-bad-ptr into /tmp/9UYCqoHP0k.dsk...
-Writing command line to /tmp/DqjcNyZQF9.dsk...
-qemu-system-i386 -hda /tmp/DqjcNyZQF9.dsk -hdb /tmp/uQXfHFsBUL.dsk -hdc /tmp/9UYCqoHP0k.dsk -hdd /tmp/KwNNRhWGTR.dsk -m 4 -net none -nographic -monitor null
+Copying tests/userprog/exec-bad-ptr into /tmp/frK4iwmklB.dsk...
+Writing command line to /tmp/xXRdmEJuRE.dsk...
+qemu-system-i386 -hda /tmp/xXRdmEJuRE.dsk -hdb /tmp/GTskd04pjv.dsk -hdc /tmp/frK4iwmklB.dsk -hdd /tmp/p1ey4Rg8GY.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put exec-bad-ptr run exec-bad-ptr
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  211,353,600 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  419,020,800 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 105 sector (52 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 97 sector (48 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -17,13 +17,13 @@ Executing 'exec-bad-ptr':
 (exec-bad-ptr) begin
 exec-bad-ptr: exit(-1)
 Execution of 'exec-bad-ptr' complete.
-Timer: 74 ticks
-Thread: 0 idle ticks, 73 kernel ticks, 1 user ticks
+Timer: 56 ticks
+Thread: 3 idle ticks, 53 kernel ticks, 0 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 62 reads, 218 writes
-hd1:0: 105 reads, 0 writes
+hd0:1: 59 reads, 202 writes
+hd1:0: 97 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 910 characters output
+Console: 908 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...

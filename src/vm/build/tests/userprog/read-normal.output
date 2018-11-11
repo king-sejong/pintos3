@@ -1,15 +1,15 @@
-Copying tests/userprog/read-normal into /tmp/FOzcM0d9iq.dsk...
-Copying ../../tests/userprog/sample.txt into /tmp/FOzcM0d9iq.dsk...
-Writing command line to /tmp/VbOPubn8C_.dsk...
-qemu-system-i386 -hda /tmp/VbOPubn8C_.dsk -hdb /tmp/3BzcITPogo.dsk -hdc /tmp/FOzcM0d9iq.dsk -hdd /tmp/QESuLDxITP.dsk -m 4 -net none -nographic -monitor null
+Copying tests/userprog/read-normal into /tmp/gu18Co3Un0.dsk...
+Copying ../../tests/userprog/sample.txt into /tmp/gu18Co3Un0.dsk...
+Writing command line to /tmp/Lh0E5ldny4.dsk...
+qemu-system-i386 -hda /tmp/Lh0E5ldny4.dsk -hdb /tmp/Cd1COy2bhf.dsk -hdc /tmp/gu18Co3Un0.dsk -hdd /tmp/SARAgVoiyq.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put read-normal put sample.txt run read-normal
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  195,584,000 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  419,020,800 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 108 sector (54 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 100 sector (50 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -18,18 +18,31 @@ Putting 'sample.txt' into the file system...
 Executing 'read-normal':
 (read-normal) begin
 (read-normal) open "sample.txt" for verification
-(read-normal) verified contents of "sample.txt"
-(read-normal) close "sample.txt"
-(read-normal) end
-read-normal: exit(0)
+(read-normal) size of sample.txt (243) differs from expected (239)
+(read-normal) 96 bytes read starting at offset 70 in "sample.txt" differ from expected.
+(read-normal) Showing first differing 64 bytes.
+(read-normal) Data actually read:
+00000040                    0d 0a-20 74 6f 75 63 68 69 6e |      .. touchin|
+00000050  67 20 61 6e 79 74 68 69-6e 67 2c 20 79 6f 75 20 |g anything, you |
+00000060  77 6f 75 6c 64 20 62 75-69 6c 64 20 75 70 20 73 |would build up s|
+00000070  6f 20 6d 61 6e 79 20 65-6c 65 63 74 72 6f 6e 73 |o many electrons|
+00000080  20 74 68 61 74 20                               | that           |
+(read-normal) Expected data:
+00000040                    0a 20-74 6f 75 63 68 69 6e 67 |      . touching|
+00000050  20 61 6e 79 74 68 69 6e-67 2c 20 79 6f 75 20 77 | anything, you w|
+00000060  6f 75 6c 64 20 62 75 69-6c 64 20 75 70 20 73 6f |ould build up so|
+00000070  20 6d 61 6e 79 20 65 6c-65 63 74 72 6f 6e 73 20 | many electrons |
+00000080  74 68 61 74 20 79                               |that y          |
+(read-normal) 96 bytes read starting at offset 70 in "sample.txt" differ from expected: FAILED
+read-normal: exit(1)
 Execution of 'read-normal' complete.
-Timer: 65 ticks
-Thread: 0 idle ticks, 64 kernel ticks, 1 user ticks
+Timer: 59 ticks
+Thread: 2 idle ticks, 54 kernel ticks, 3 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 101 reads, 226 writes
-hd1:0: 108 reads, 0 writes
+hd0:1: 98 reads, 210 writes
+hd1:0: 100 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 1111 characters output
+Console: 2142 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...

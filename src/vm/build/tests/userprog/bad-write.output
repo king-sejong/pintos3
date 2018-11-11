@@ -1,14 +1,14 @@
-Copying tests/userprog/bad-write into /tmp/sRhJjPfCeO.dsk...
-Writing command line to /tmp/De28v6Tk2s.dsk...
-qemu-system-i386 -hda /tmp/De28v6Tk2s.dsk -hdb /tmp/HzjPgsnlNT.dsk -hdc /tmp/sRhJjPfCeO.dsk -hdd /tmp/rcHuxi3UGS.dsk -m 4 -net none -nographic -monitor null
+Copying tests/userprog/bad-write into /tmp/Z1Bu02Xrvw.dsk...
+Writing command line to /tmp/vyC0waNol7.dsk...
+qemu-system-i386 -hda /tmp/vyC0waNol7.dsk -hdb /tmp/3cy1mDGCrQ.dsk -hdc /tmp/Z1Bu02Xrvw.dsk -hdd /tmp/p_922VJQPK.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put bad-write run bad-write
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  247,808,000 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  419,020,800 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 105 sector (52 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 97 sector (48 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -17,13 +17,13 @@ Executing 'bad-write':
 (bad-write) begin
 bad-write: exit(-1)
 Execution of 'bad-write' complete.
-Timer: 72 ticks
-Thread: 0 idle ticks, 71 kernel ticks, 1 user ticks
+Timer: 56 ticks
+Thread: 2 idle ticks, 54 kernel ticks, 0 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 62 reads, 218 writes
-hd1:0: 105 reads, 0 writes
+hd0:1: 59 reads, 202 writes
+hd1:0: 97 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 889 characters output
+Console: 887 characters output
 Keyboard: 0 keys pressed
 Exception: 1 page faults
 Powering off...

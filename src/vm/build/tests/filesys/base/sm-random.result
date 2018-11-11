@@ -1,2 +1,21 @@
 FAIL
-run: 13 bytes read starting at offset 260 in "bazzle" differ from expected: FAILED
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (sm-random) begin
+  (sm-random) create "bazzle"
+  (sm-random) open "bazzle"
+  (sm-random) write "bazzle" in random order
+  (sm-random) read "bazzle" in random order
+  (sm-random) close "bazzle"
+  (sm-random) end
+Differences in `diff -u' format:
+  (sm-random) begin
+  (sm-random) create "bazzle"
+  (sm-random) open "bazzle"
+  (sm-random) write "bazzle" in random order
+- (sm-random) read "bazzle" in random order
+- (sm-random) close "bazzle"
+- (sm-random) end
+
+(Process exit codes are excluded for matching purposes.)

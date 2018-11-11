@@ -1,16 +1,16 @@
-Copying tests/userprog/multi-child-fd into /tmp/IgLacO1S3j.dsk...
-Copying ../../tests/userprog/sample.txt into /tmp/IgLacO1S3j.dsk...
-Copying tests/userprog/child-close into /tmp/IgLacO1S3j.dsk...
-Writing command line to /tmp/GGQmnU3kXk.dsk...
-qemu-system-i386 -hda /tmp/GGQmnU3kXk.dsk -hdb /tmp/lWbaXlQAk3.dsk -hdc /tmp/IgLacO1S3j.dsk -hdd /tmp/FAttNL6qbY.dsk -m 4 -net none -nographic -monitor null
+Copying tests/userprog/multi-child-fd into /tmp/3JVdt_FdC6.dsk...
+Copying ../../tests/userprog/sample.txt into /tmp/3JVdt_FdC6.dsk...
+Copying tests/userprog/child-close into /tmp/3JVdt_FdC6.dsk...
+Writing command line to /tmp/jih9nsZMnV.dsk...
+qemu-system-i386 -hda /tmp/jih9nsZMnV.dsk -hdb /tmp/1D0eG3llky.dsk -hdc /tmp/3JVdt_FdC6.dsk -hdd /tmp/j88g2zfrUe.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put multi-child-fd put sample.txt put child-close run multi-child-fd
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  202,956,800 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  419,020,800 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 225 sector (112 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 207 sector (103 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -24,17 +24,31 @@ Executing 'multi-child-fd':
 (child-close) end
 child-close: exit(0)
 (multi-child-fd) wait(exec()) = 0
-(multi-child-fd) verified contents of "sample.txt"
-(multi-child-fd) end
-multi-child-fd: exit(0)
+(multi-child-fd) size of sample.txt (243) differs from expected (239)
+(multi-child-fd) 96 bytes read starting at offset 70 in "sample.txt" differ from expected.
+(multi-child-fd) Showing first differing 64 bytes.
+(multi-child-fd) Data actually read:
+00000040                    0d 0a-20 74 6f 75 63 68 69 6e |      .. touchin|
+00000050  67 20 61 6e 79 74 68 69-6e 67 2c 20 79 6f 75 20 |g anything, you |
+00000060  77 6f 75 6c 64 20 62 75-69 6c 64 20 75 70 20 73 |would build up s|
+00000070  6f 20 6d 61 6e 79 20 65-6c 65 63 74 72 6f 6e 73 |o many electrons|
+00000080  20 74 68 61 74 20                               | that           |
+(multi-child-fd) Expected data:
+00000040                    0a 20-74 6f 75 63 68 69 6e 67 |      . touching|
+00000050  20 61 6e 79 74 68 69 6e-67 2c 20 79 6f 75 20 77 | anything, you w|
+00000060  6f 75 6c 64 20 62 75 69-6c 64 20 75 70 20 73 6f |ould build up so|
+00000070  20 6d 61 6e 79 20 65 6c-65 63 74 72 6f 6e 73 20 | many electrons |
+00000080  74 68 61 74 20 79                               |that y          |
+(multi-child-fd) 96 bytes read starting at offset 70 in "sample.txt" differ from expected: FAILED
+multi-child-fd: exit(1)
 Execution of 'multi-child-fd' complete.
-Timer: 78 ticks
-Thread: 0 idle ticks, 76 kernel ticks, 2 user ticks
+Timer: 64 ticks
+Thread: 7 idle ticks, 55 kernel ticks, 2 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 175 reads, 462 writes
-hd1:0: 225 reads, 0 writes
+hd0:1: 169 reads, 426 writes
+hd1:0: 207 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 1247 characters output
+Console: 2324 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...

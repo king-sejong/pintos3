@@ -1,15 +1,15 @@
-Copying tests/userprog/close-twice into /tmp/QEzEq3gtx9.dsk...
-Copying ../../tests/userprog/sample.txt into /tmp/QEzEq3gtx9.dsk...
-Writing command line to /tmp/3o3sdwSUFh.dsk...
-qemu-system-i386 -hda /tmp/3o3sdwSUFh.dsk -hdb /tmp/T1Zy06z0Bw.dsk -hdc /tmp/QEzEq3gtx9.dsk -hdd /tmp/djXU4pdZEX.dsk -m 4 -net none -nographic -monitor null
+Copying tests/userprog/close-twice into /tmp/AbRwUe6oMc.dsk...
+Copying ../../tests/userprog/sample.txt into /tmp/AbRwUe6oMc.dsk...
+Writing command line to /tmp/A0cTdE76Jk.dsk...
+qemu-system-i386 -hda /tmp/A0cTdE76Jk.dsk -hdb /tmp/aBWvH2eYmJ.dsk -hdc /tmp/AbRwUe6oMc.dsk -hdd /tmp/Sn3qg9iEUK.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put close-twice put sample.txt run close-twice
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  340,787,200 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  470,220,800 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 108 sector (54 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 99 sector (49 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -23,13 +23,13 @@ Executing 'close-twice':
 (close-twice) end
 close-twice: exit(0)
 Execution of 'close-twice' complete.
-Timer: 74 ticks
-Thread: 0 idle ticks, 73 kernel ticks, 1 user ticks
+Timer: 62 ticks
+Thread: 4 idle ticks, 57 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 94 reads, 226 writes
-hd1:0: 108 reads, 0 writes
+hd0:1: 90 reads, 208 writes
+hd1:0: 99 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 1084 characters output
+Console: 1082 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...

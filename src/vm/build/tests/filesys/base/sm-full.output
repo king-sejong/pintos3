@@ -1,14 +1,14 @@
-Copying tests/filesys/base/sm-full into /tmp/8nmDsq2Qrq.dsk...
-Writing command line to /tmp/nwlH9hqqez.dsk...
-qemu-system-i386 -hda /tmp/nwlH9hqqez.dsk -hdb /tmp/t6xvkhdeiO.dsk -hdc /tmp/8nmDsq2Qrq.dsk -hdd /tmp/anDlA_p91t.dsk -m 4 -net none -nographic -monitor null
+Copying tests/filesys/base/sm-full into /tmp/n2JC64znJK.dsk...
+Writing command line to /tmp/xIN58RWnTe.dsk...
+qemu-system-i386 -hda /tmp/xIN58RWnTe.dsk -hdb /tmp/8dmqmHFBUh.dsk -hdc /tmp/n2JC64znJK.dsk -hdd /tmp/zlEVxmv62_.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put sm-full run sm-full
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  219,955,200 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  471,040,000 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 109 sector (54 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 101 sector (50 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -25,11 +25,11 @@ Executing 'sm-full':
 (sm-full) end
 sm-full: exit(0)
 Execution of 'sm-full' complete.
-Timer: 73 ticks
-Thread: 0 idle ticks, 70 kernel ticks, 3 user ticks
+Timer: 62 ticks
+Thread: 4 idle ticks, 57 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 106 reads, 254 writes
-hd1:0: 109 reads, 0 writes
+hd0:1: 103 reads, 238 writes
+hd1:0: 101 reads, 0 writes
 hd1:1: 0 reads, 0 writes
 Console: 1083 characters output
 Keyboard: 0 keys pressed

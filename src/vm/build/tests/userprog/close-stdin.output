@@ -1,14 +1,14 @@
-Copying tests/userprog/close-stdin into /tmp/h6QpJm8lvE.dsk...
-Writing command line to /tmp/8mQwQX9Zgb.dsk...
-qemu-system-i386 -hda /tmp/8mQwQX9Zgb.dsk -hdb /tmp/7kLvDuc9uX.dsk -hdc /tmp/h6QpJm8lvE.dsk -hdd /tmp/LL9u4DGUbM.dsk -m 4 -net none -nographic -monitor null
+Copying tests/userprog/close-stdin into /tmp/9Qy_qXyNX2.dsk...
+Writing command line to /tmp/g6858cHVRp.dsk...
+qemu-system-i386 -hda /tmp/g6858cHVRp.dsk -hdb /tmp/PTOY8BoXpo.dsk -hdc /tmp/9Qy_qXyNX2.dsk -hdd /tmp/kbHmmrDDWJ.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put close-stdin run close-stdin
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  209,510,400 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  471,040,000 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 105 sector (52 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 97 sector (48 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -18,13 +18,13 @@ Executing 'close-stdin':
 (close-stdin) end
 close-stdin: exit(0)
 Execution of 'close-stdin' complete.
-Timer: 62 ticks
-Thread: 0 idle ticks, 61 kernel ticks, 1 user ticks
+Timer: 60 ticks
+Thread: 3 idle ticks, 57 kernel ticks, 0 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 62 reads, 218 writes
-hd1:0: 105 reads, 0 writes
+hd0:1: 59 reads, 202 writes
+hd1:0: 97 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 920 characters output
+Console: 918 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...

@@ -1,15 +1,15 @@
-Copying tests/filesys/base/syn-read into /tmp/FmSF2ZzX_N.dsk...
-Copying tests/filesys/base/child-syn-read into /tmp/FmSF2ZzX_N.dsk...
-Writing command line to /tmp/N_fu5WVRQ7.dsk...
-qemu-system-i386 -hda /tmp/N_fu5WVRQ7.dsk -hdb /tmp/R9izCyJA7s.dsk -hdc /tmp/FmSF2ZzX_N.dsk -hdd /tmp/3FLqxyiweY.dsk -m 4 -net none -nographic -monitor null
+Copying tests/filesys/base/syn-read into /tmp/9nugErVylB.dsk...
+Copying tests/filesys/base/child-syn-read into /tmp/9nugErVylB.dsk...
+Writing command line to /tmp/yzrzKSmQ6Q.dsk...
+qemu-system-i386 -hda /tmp/yzrzKSmQ6Q.dsk -hdb /tmp/9Y_EgfJU76.dsk -hdc /tmp/9nugErVylB.dsk -hdd /tmp/3g2Fi6yCzl.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put syn-read put child-syn-read run syn-read
-Pintos booting with 4,096 kB RAM...
-374 pages available in kernel pool.
-374 pages available in user pool.
-Calibrating timer...  219,545,600 loops/s.
+Pintos booting with 4,088 kB RAM...
+373 pages available in kernel pool.
+373 pages available in user pool.
+Calibrating timer...  471,040,000 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
-hd1:0: detected 230 sector (115 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+hd1:0: detected 213 sector (106 kB) disk, model "QEMU HARDDISK", serial "QM00003"
 hd1:1: detected 8,064 sector (3 MB) disk, model "QEMU HARDDISK", serial "QM00004"
 Formatting file system...done.
 Boot complete.
@@ -22,20 +22,45 @@ Executing 'syn-read':
 (syn-read) write "data"
 (syn-read) close "data"
 (syn-read) exec child 1 of 10: "child-syn-read 0"
-child-syn-read: exit(0)
 (syn-read) exec child 2 of 10: "child-syn-read 1"
-Kernel PANIC at ../../userprog/pagedir.c:112 in pagedir_set_page(): assertion `pg_ofs (kpage) == 0' failed.
-Call stack: 0xc01072b9 0xc010a224 0xc0109217 0xc0109b52 0xc0101098.
-The `backtrace' program can make call stacks useful.
-Read "Backtraces" in the "Debugging Tools" chapter
-of the Pintos documentation for more information.
-Timer: 90 ticks
-Thread: 0 idle ticks, 83 kernel ticks, 7 user ticks
+child-syn-read: exit(0)
+(syn-read) exec child 3 of 10: "child-syn-read 2"
+child-syn-read: exit(1)
+(syn-read) exec child 4 of 10: "child-syn-read 3"
+child-syn-read: exit(2)
+(syn-read) exec child 5 of 10: "child-syn-read 4"
+child-syn-read: exit(3)
+(syn-read) exec child 6 of 10: "child-syn-read 5"
+child-syn-read: exit(4)
+(syn-read) exec child 7 of 10: "child-syn-read 6"
+child-syn-read: exit(5)
+(syn-read) exec child 8 of 10: "child-syn-read 7"
+child-syn-read: exit(6)
+(syn-read) exec child 9 of 10: "child-syn-read 8"
+child-syn-read: exit(7)
+(syn-read) exec child 10 of 10: "child-syn-read 9"
+child-syn-read: exit(8)
+(syn-read) wait for child 1 of 10 returned 0 (expected 0)
+(syn-read) wait for child 2 of 10 returned 1 (expected 1)
+(syn-read) wait for child 3 of 10 returned 2 (expected 2)
+(syn-read) wait for child 4 of 10 returned 3 (expected 3)
+(syn-read) wait for child 5 of 10 returned 4 (expected 4)
+(syn-read) wait for child 6 of 10 returned 5 (expected 5)
+(syn-read) wait for child 7 of 10 returned 6 (expected 6)
+(syn-read) wait for child 8 of 10 returned 7 (expected 7)
+(syn-read) wait for child 9 of 10 returned 8 (expected 8)
+child-syn-read: exit(9)
+(syn-read) wait for child 10 of 10 returned 9 (expected 9)
+(syn-read) end
+syn-read: exit(0)
+Execution of 'syn-read' complete.
+Timer: 191 ticks
+Thread: 63 idle ticks, 64 kernel ticks, 64 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 1194 reads, 478 writes
-hd1:0: 230 reads, 0 writes
+hd0:1: 10757 reads, 444 writes
+hd1:0: 213 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 1450 characters output
+Console: 2389 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...
