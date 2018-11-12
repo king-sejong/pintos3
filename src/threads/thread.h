@@ -117,7 +117,7 @@ struct thread
     struct file* exec_file;
     struct list file_list;
     int fd_count;
-
+    void * esp;  
 #endif
 
 #ifdef VM

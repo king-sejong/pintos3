@@ -27,7 +27,8 @@ page_create(void * kpage, void * upage)
   p->t = curr;
 
   bool dirty_bit = false;
-  bool swapped = false;
+  //bool swapped = false;
+  size_t swap_index = -1;
   bool on_kmem = true;
 
   struct hash_elem *he = hash_insert (&curr -> page_table, &p->hash_elem);
@@ -56,6 +57,8 @@ page_find(struct hash *page_table,void* upage)
 
 
 }
+
+
 
 static unsigned
 page_hash(const struct hash_elem *he, void * aux UNUSED)
@@ -117,7 +120,50 @@ page_set_zero(struct page * p)
   return true;
 }
 
+void
+page_remove(struct hash *page_table){
+  hash_destroy(page_table, page_remove_helper);
+}
+
+void
+page_remove_helper (struct hash_elem *he, void *aux UNUSED)
+{
+  void *kpage;
 
 
+  struct thread *t = thread_current ();
+  struct page * p = hash_entry (he, struct page, hash_elem);
+  //kpage = p->kpage;
+  kpage = pagedir_get_page (t->pagedir, p->upage);
+  if (kpage != NULL)
+    {
+      pagedir_clear_page (t->pagedir, p->upage);
+      frame_palloc_free_page (kpage);
+    }
+  if (p->swap_index > -1)
+    //swap_destroy (p->swap_idx);
+  free (p);
+}
 
 
+void *
+stack_grow(void * upage){
+
+  void * kpage = frame_palloc_get_page(PAL_ZERO, upage);
+  
+  
+  if (kpage != NULL){
+    if (!install_page(upage, kpage, true)){
+
+      frame_palloc_free_page(kpage);
+      return NULL;
+    }
+    page_create(kpage, upage);
+    return kpage;
+
+  }
+
+  return NULL;
+
+
+}

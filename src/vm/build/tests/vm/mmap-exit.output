@@ -1,12 +1,12 @@
-Copying tests/vm/mmap-exit into /tmp/99LzDHArwu.dsk...
-Copying tests/vm/child-mm-wrt into /tmp/99LzDHArwu.dsk...
-Writing command line to /tmp/KrCN3eoLqU.dsk...
-qemu-system-i386 -hda /tmp/KrCN3eoLqU.dsk -hdb /tmp/NfscsIaZlM.dsk -hdc /tmp/99LzDHArwu.dsk -hdd /tmp/nYHPHNc5_g.dsk -m 4 -net none -nographic -monitor null
+Copying tests/vm/mmap-exit into /tmp/8BYGZTk5eZ.dsk...
+Copying tests/vm/child-mm-wrt into /tmp/8BYGZTk5eZ.dsk...
+Writing command line to /tmp/sDExezWihi.dsk...
+qemu-system-i386 -hda /tmp/sDExezWihi.dsk -hdb /tmp/sEvSismWz8.dsk -hdc /tmp/8BYGZTk5eZ.dsk -hdd /tmp/lXwrkpANXL.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put mmap-exit put child-mm-wrt run mmap-exit
 Pintos booting with 4,096 kB RAM...
 374 pages available in kernel pool.
 374 pages available in user pool.
-Calibrating timer...  209,510,400 loops/s.
+Calibrating timer...  217,088,000 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
 hd1:0: detected 216 sector (108 kB) disk, model "QEMU HARDDISK", serial "QM00003"
@@ -25,8 +25,8 @@ child-mm-wrt: exit(-1)
 (mmap-exit) wait for child (should return 0): FAILED
 mmap-exit: exit(1)
 Execution of 'mmap-exit' complete.
-Timer: 73 ticks
-Thread: 0 idle ticks, 71 kernel ticks, 2 user ticks
+Timer: 82 ticks
+Thread: 0 idle ticks, 80 kernel ticks, 2 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 168 reads, 448 writes
 hd1:0: 216 reads, 0 writes

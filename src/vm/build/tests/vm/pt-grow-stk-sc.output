@@ -1,11 +1,11 @@
-Copying tests/vm/pt-grow-stk-sc into /tmp/SdhSXTm3si.dsk...
-Writing command line to /tmp/F_K0m2KtUr.dsk...
-qemu-system-i386 -hda /tmp/F_K0m2KtUr.dsk -hdb /tmp/n7mf5XKEol.dsk -hdc /tmp/SdhSXTm3si.dsk -hdd /tmp/2kM0suUyfM.dsk -m 4 -net none -nographic -monitor null
+Copying tests/vm/pt-grow-stk-sc into /tmp/YvTbs3TuV5.dsk...
+Writing command line to /tmp/dJKkvLCJXr.dsk...
+qemu-system-i386 -hda /tmp/dJKkvLCJXr.dsk -hdb /tmp/TeK9pAWxaS.dsk -hdc /tmp/YvTbs3TuV5.dsk -hdd /tmp/fhvcl16J9d.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put pt-grow-stk-sc run pt-grow-stk-sc
 Pintos booting with 4,096 kB RAM...
 374 pages available in kernel pool.
 374 pages available in user pool.
-Calibrating timer...  104,755,200 loops/s.
+Calibrating timer...  209,715,200 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
 hd1:0: detected 108 sector (54 kB) disk, model "QEMU HARDDISK", serial "QM00003"
@@ -15,15 +15,23 @@ Boot complete.
 Putting 'pt-grow-stk-sc' into the file system...
 Executing 'pt-grow-stk-sc':
 (pt-grow-stk-sc) begin
-pt-grow-stk-sc: exit(-1)
-Execution of 'pt-grow-stk-sc' complete.
-Timer: 61 ticks
-Thread: 0 idle ticks, 61 kernel ticks, 0 user ticks
+(pt-grow-stk-sc) create "sample.txt"
+(pt-grow-stk-sc) open "sample.txt"
+(pt-grow-stk-sc) write "sample.txt"
+(pt-grow-stk-sc) 2nd open "sample.txt"
+(pt-grow-stk-sc) read "sample.txt"
+Kernel PANIC at ../../threads/synch.c:236 in lock_release(): assertion `lock_held_by_current_thread (lock)' failed.
+Call stack: 0xc01072d9 0xc010291f 0xc01049f0 0xc010c2f9 0xc010b93b 0xc010aae2 0xc010ae25 0xc0101897 0xc01019cf 0x804a2ff 0x80481ea 0x80488a4 0x80488d0.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 74 ticks
+Thread: 0 idle ticks, 72 kernel ticks, 2 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 72 reads, 224 writes
+hd0:1: 104 reads, 232 writes
 hd1:0: 108 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 924 characters output
+Console: 1464 characters output
 Keyboard: 0 keys pressed
-Exception: 1 page faults
+Exception: 3 page faults
 Powering off...

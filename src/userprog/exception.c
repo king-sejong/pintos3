@@ -10,7 +10,11 @@
 #include "vm/page.h"
 #include "userprog/pagedir.h"
 #include "threads/vaddr.h"
+#include "threads/palloc.h"
 #endif
+
+
+#define MAX_STACK_SIZE 8 * 1024 * 1024
 /* Number of page faults processed. */
 static long long page_fault_cnt;
 
@@ -160,18 +164,23 @@ page_fault (struct intr_frame *f)
   void *upage;
 
   
+  
+//printf("kernel or user : %d\n",user);
 
   if (not_present){
+    frame_lock_acquire();
+ 
     upage = pg_round_down(fault_addr);
 
     struct thread * t = thread_current();
     struct page *page = page_find (&t->page_table, upage);
     if (page != NULL){
+//printf("here not present\n");
 
-      if (page ->swapped){
+      if (page ->swap_index > -1){
 
         // success = get_swap_page(page);
-      }
+      }/*
       else if (!page -> on_kmem){
         if (page -> file){
            success = page_file_load(page);
@@ -180,17 +189,40 @@ page_fault (struct intr_frame *f)
           success = page_set_zero(page);
         }
         
-      }
+      }*/
     // case 1 existed but swapped
     // case 2 file exist, but not loaded
     // case 3 file doesn't exist
-   
+      frame_lock_release(); 
       if (success) return;
     }
 
     else{
+//      printf("stack growth shoud taken\n");
+      if (!user && f->esp >= PHYS_BASE - MAX_STACK_SIZE){
+    //     printf("thread esp : %zu\n", thread_current()->esp);
+//         printf("interrupt esp : %zu\n", f->esp);
+
+         f->esp = t->esp;
+      }
+
+      if(is_user_vaddr(fault_addr) && 
+		(uint8_t *) f->esp - 32 <= (uint8_t *) fault_addr
+	//	&& stack_grow(upage)
+        ){
+     
+        void * kpage = stack_grow(upage);
+       
+        if(kpage != NULL) {
+          frame_lock_release();
+          return;
+        }
+         
+        
+      }
       // stack grow?
     }
+    frame_lock_release();
   }
   #endif
 

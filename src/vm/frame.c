@@ -30,7 +30,6 @@ void *
 frame_palloc_get_page(enum palloc_flags flags, uint8_t *upage)
 {
 
-  lock_acquire(&frame_lock);
 
   void * allocated_frame;
   struct frame * f = malloc(sizeof(struct frame));
@@ -46,11 +45,9 @@ frame_palloc_get_page(enum palloc_flags flags, uint8_t *upage)
   
   struct hash_elem *e =  hash_insert(&frame_table, &f->hash_elem);
   if (!e){
-    lock_release(&frame_lock);
     return allocated_frame;
   }
   free(f);
-  lock_release(&frame_lock);
   return hash_entry(e, struct frame, hash_elem);
 }
 /*
@@ -120,3 +117,15 @@ bool frame_less(const struct hash_elem *first, const struct hash_elem *second, v
   return f1->kpage < f2->kpage;
 }
 
+
+
+
+void
+frame_lock_acquire(void){
+  lock_acquire(&frame_lock);
+}
+
+void
+frame_lock_release(void){
+  lock_release(&frame_lock);
+}

@@ -34,7 +34,8 @@ syscall_handler (struct intr_frame *f)
 
   int * esp = f->esp;
   valid_vaddr(esp);
-  //printf("syscall no : %d\n", *esp);
+  thread_current ()->esp = esp;
+//  printf("syscall no : %d\n", *esp);
   switch(*esp){
     case SYS_HALT:
       halt();
@@ -53,9 +54,9 @@ syscall_handler (struct intr_frame *f)
       f->eax = wait((pid_t) *(esp+1));
       break;
     case SYS_CREATE:
-      valid_vaddr(esp+1);
+      //valid_vaddr(esp+1);
       valid_vaddr(esp+2);
-      valid_vaddr(*(esp+1));
+      //valid_vaddr(*(esp+1));
       //valid_vaddr(*(esp+2));
       f->eax = create((const char*) *(esp+1), (unsigned) *(esp+2));
       // eax == false , then what happen?
@@ -74,28 +75,31 @@ syscall_handler (struct intr_frame *f)
       f->eax = filesize((const char*) *(esp+1));
       break;
     case SYS_READ:
-      valid_vaddr(esp+1);
-      valid_vaddr(esp+2);
+      //valid_vaddr(esp+1);
+      //valid_vaddr(esp+2);
       valid_vaddr(esp+3);
-      valid_vaddr(*(esp+2));
+      if(!is_user_vaddr(*(esp+2))) exit(-1);
+      //valid_vaddr(*(esp+2));
+//  printf("read funciton called 4 !!!\n");  
       f->eax = read((int) *(esp+1), (void*) *(esp+2), (unsigned) *(esp+3));
       break;
     case SYS_WRITE:
-      valid_vaddr(esp+1);
-      valid_vaddr(esp+2);
+      //valid_vaddr(esp+1);
+      //valid_vaddr(esp+2);
+//  printf("wrtie funciton called 4 !!!\n");  
       valid_vaddr(esp+3);
       valid_vaddr(*(esp+2));
       f->eax = write((int) *(esp+1), (const void*) *(esp+2), (unsigned) *(esp+3));
       break;
     case SYS_SEEK:
-      valid_vaddr(esp+1);
+      //valid_vaddr(esp+1);
       valid_vaddr(esp+2);
-      valid_vaddr(*(esp+1));
+      //valid_vaddr(*(esp+1));
       seek((int) *(esp+1), (unsigned) *(esp+2));
       break;
     case SYS_TELL:
       valid_vaddr(esp+1);
-      valid_vaddr(*(esp+1));
+      //valid_vaddr(*(esp+1));
       f->eax = tell((int) *(esp+1));
       break;
     case SYS_CLOSE:
@@ -208,26 +212,24 @@ int
 read(int fd, void *buffer, unsigned size){
   int i, result;
   bool val_org;
-
   //if(fd == 1) return -1;
-  
-  lock_acquire(&read_lock);
+  //lock_acquire(&read_lock);
   val_org = val;
   val = true;
   
   if (!val_org || !val){
-    lock_acquire(&file_lock);
+    //lock_acquire(&file_lock);
   }
-  lock_release(&read_lock);
+  //lock_release(&read_lock);
 
   if(fd == 0){
     for( i=0;i<size;i++){
       *(char *)(buffer+i)=input_getc();
     }
-    lock_acquire(&read_lock);
+    //lock_acquire(&read_lock);
     val = false;
-    lock_release(&file_lock);
-    lock_release(&read_lock);
+    //lock_release(&file_lock);
+    //lock_release(&read_lock);
     result = size;
     goto done;
   }
@@ -236,13 +238,14 @@ read(int fd, void *buffer, unsigned size){
   if(felem==NULL)
     result = -1;
   else 
+    
     result =  file_read(felem->file, buffer, size);
 
   done :
-    lock_acquire(&read_lock);
+    //lock_acquire(&read_lock);
     val = false;
-    lock_release(&file_lock);
-    lock_release(&read_lock);
+    //lock_release(&file_lock);
+    //lock_release(&read_lock);
     return result;
 }
 
@@ -254,8 +257,7 @@ write(int fd, const void *buffer, unsigned size){
   }
 
   val = false;
-  lock_acquire(&file_lock);
-
+  //lock_acquire(&file_lock);
   if (fd == 1) {
     putbuf(buffer, size);
     result = size;
@@ -265,12 +267,12 @@ write(int fd, const void *buffer, unsigned size){
   struct file_elem *felem= find_file(fd);
   if(felem==NULL)
     result = -1;
-  else 
+  else{ 
     result =  file_write(felem->file, buffer, size);
-
+  }
   done:
     val = false;
-    lock_release(&file_lock);
+    //lock_release(&file_lock);
     return result; 
 
 }
@@ -280,7 +282,7 @@ seek(int fd, unsigned position){
   struct file_elem *felem= find_file(fd);
   if(felem==NULL)
     return -1;
-  return file_seek(felem->file);
+  return file_seek(felem->file, position);
 }
 
 unsigned

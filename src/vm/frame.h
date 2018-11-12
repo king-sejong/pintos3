@@ -26,6 +26,7 @@ struct frame * find_victim(void * kpage);
 unsigned frame_hash(const struct hash_elem *, void *);
 bool frame_less(const struct hash_elem *, const struct hash_elem *, void *);
 //void ** frame_palloc_get_multiple (enum palloc_flags flags, size_t page_cnt); // it wouldn't used
-
+void frame_lock_acquire(void);
+void frame_lock_release(void);
 #endif /* vm/frame.h */
 

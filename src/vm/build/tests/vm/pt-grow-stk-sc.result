@@ -1,23 +1,22 @@
 FAIL
-Test output failed to match any acceptable form.
-
-Acceptable output:
-  (pt-grow-stk-sc) begin
-  (pt-grow-stk-sc) create "sample.txt"
-  (pt-grow-stk-sc) open "sample.txt"
-  (pt-grow-stk-sc) write "sample.txt"
-  (pt-grow-stk-sc) 2nd open "sample.txt"
-  (pt-grow-stk-sc) read "sample.txt"
-  (pt-grow-stk-sc) compare written data against read data
-  (pt-grow-stk-sc) end
-Differences in `diff -u' format:
-  (pt-grow-stk-sc) begin
-- (pt-grow-stk-sc) create "sample.txt"
-- (pt-grow-stk-sc) open "sample.txt"
-- (pt-grow-stk-sc) write "sample.txt"
-- (pt-grow-stk-sc) 2nd open "sample.txt"
-- (pt-grow-stk-sc) read "sample.txt"
-- (pt-grow-stk-sc) compare written data against read data
-- (pt-grow-stk-sc) end
-
-(Process exit codes are excluded for matching purposes.)
+Kernel panic in run: PANIC at ../../threads/synch.c:236 in lock_release(): assertion `lock_held_by_current_thread (lock)' failed.
+Call stack: 0xc01072d9 0xc010291f 0xc01049f0 0xc010c2f9 0xc010b93b 0xc010aae2 0xc010ae25 0xc0101897 0xc01019cf 0x804a2ff 0x80481ea 0x80488a4 0x80488d0
+Translation of call stack:
+In kernel.o:
+0xc01072d9: debug_panic (.../../lib/kernel/debug.c:34)
+0xc010291f: lock_release (...../../threads/synch.c:238)
+0xc01049f0: disk_read (.../../../devices/disk.c:237)
+0xc010c2f9: inode_read_at (...../../filesys/inode.c:226)
+0xc010b93b: file_read (...d/../../filesys/file.c:73)
+0xc010aae2: read (...../userprog/syscall.c:246)
+0xc010ae25: syscall_handler (.../../userprog/syscall.c:84)
+0xc0101897: intr_handler (..../threads/interrupt.c:361)
+0xc01019cf: intr_entry (threads/intr-stubs.S:38)
+In tests/vm/pt-grow-stk-sc:
+0x0804a2ff: read (...../lib/user/syscall.c:117)
+0x080481ea: test_main (...ts/vm/pt-grow-stk-sc.c:28)
+0x080488a4: main (...ild/../../tests/main.c:13)
+0x080488d0: _start (.../../../lib/user/entry.c:9)
+Translations of user virtual addresses above are based on a guess at
+the binary to use.  If this guess is incorrect, then those
+translations will be misleading.

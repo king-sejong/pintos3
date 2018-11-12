@@ -44,7 +44,6 @@ fail (const char *format, ...)
   va_start (args, format);
   vmsg (format, args, ": FAILED\n");
   va_end (args);
-
   exit (1);
 }
 

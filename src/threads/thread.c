@@ -723,6 +723,8 @@ find_file(int fd){
   struct list_elem *e;
   struct list *flist = &thread_current()->file_list;
 
+  if (fd <2 || fd> thread_current()->fd_count) return NULL;
+
   for(e=list_begin(flist);e !=list_end(flist);e=list_next(e)){
    
       felem=list_entry(e, struct file_elem, f_elem);

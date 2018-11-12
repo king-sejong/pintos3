@@ -231,6 +231,8 @@ void
 lock_release (struct lock *lock) 
 {
   ASSERT (lock != NULL);
+  //printf("tc : %p\n",thread_current());
+  //printf("lh : %p\n",lock->holder);
   ASSERT (lock_held_by_current_thread (lock));
 
   lock->holder = NULL;

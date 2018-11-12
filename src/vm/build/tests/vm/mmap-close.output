@@ -1,12 +1,12 @@
-Copying tests/vm/mmap-close into /tmp/GHayApyFLx.dsk...
-Copying ../../tests/vm/sample.txt into /tmp/GHayApyFLx.dsk...
-Writing command line to /tmp/_qGU8w_ODY.dsk...
-qemu-system-i386 -hda /tmp/_qGU8w_ODY.dsk -hdb /tmp/z5i6gEaV3d.dsk -hdc /tmp/GHayApyFLx.dsk -hdd /tmp/cnnSEgSesR.dsk -m 4 -net none -nographic -monitor null
+Copying tests/vm/mmap-close into /tmp/f60l8wCffK.dsk...
+Copying ../../tests/vm/sample.txt into /tmp/f60l8wCffK.dsk...
+Writing command line to /tmp/6Yxjad28_w.dsk...
+qemu-system-i386 -hda /tmp/6Yxjad28_w.dsk -hdb /tmp/hTh3qANuUb.dsk -hdc /tmp/f60l8wCffK.dsk -hdd /tmp/YHeaWHcsd0.dsk -m 4 -net none -nographic -monitor null
 Kernel command line: -q -f put mmap-close put sample.txt run mmap-close
 Pintos booting with 4,096 kB RAM...
 374 pages available in kernel pool.
 374 pages available in user pool.
-Calibrating timer...  212,992,000 loops/s.
+Calibrating timer...  209,510,400 loops/s.
 hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
 hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
 hd1:0: detected 111 sector (55 kB) disk, model "QEMU HARDDISK", serial "QM00003"
@@ -21,8 +21,8 @@ Executing 'mmap-close':
 (mmap-close) mmap "sample.txt"
 mmap-close: exit(-1)
 Execution of 'mmap-close' complete.
-Timer: 72 ticks
-Thread: 0 idle ticks, 72 kernel ticks, 0 user ticks
+Timer: 63 ticks
+Thread: 0 idle ticks, 62 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
 hd0:1: 102 reads, 232 writes
 hd1:0: 111 reads, 0 writes

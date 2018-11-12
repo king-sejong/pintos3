@@ -12,7 +12,8 @@ struct page
 
   struct thread * t;  
   bool dirty_bit;
-  bool swapped;
+  //bool swapped;
+  size_t swap_index;
   bool on_kmem;  
 
   struct file *file; 
@@ -31,3 +32,7 @@ bool page_less (const struct hash_elem*, const struct hash_elem*, void * aux);
 bool page_file_load(struct page *);
 bool page_set_zero(struct page *);
 
+void page_remove(struct hash *);
+void page_remove_helper(struct hash_elem *, void * aux);
+
+void * stack_grow(void * upage);

@@ -265,6 +265,32 @@ process_exit (void)
   /* Destroy the current process's page directory and switch back
      to the kernel-only page directory. */
   pd = curr->pagedir;
+
+  //printf("how many ! \n");
+
+  if( curr->exec_file )
+  {
+
+    file_allow_write (curr->exec_file);
+    file_close (curr->exec_file);
+  }
+  #ifdef VM
+  frame_lock_acquire ();
+  page_remove (&curr->page_table);
+  frame_lock_release ();
+  #endif
+  struct file_elem *felem;
+  struct list_elem *e;
+  for (e = list_begin (&curr->file_list); e != list_end (&curr->file_list); )
+    {
+      felem = list_entry (e, struct file_elem, f_elem);
+      e = list_next (e);
+      file_close (felem->file);
+      list_remove (&felem->f_elem);
+      free (felem);
+    }
+  //printf("end of process exit \n");
+
   if (pd != NULL) 
     {
       /* Correct ordering here is crucial.  We must set
@@ -279,26 +305,6 @@ process_exit (void)
       pagedir_destroy (pd);
     }
   
-  //printf("how many ! \n");
-
-  if( curr->exec_file )
-  {
-
-    file_allow_write (curr->exec_file);
-    file_close (curr->exec_file);
-  }
-
-  struct file_elem *felem;
-  struct list_elem *e;
-  for (e = list_begin (&curr->file_list); e != list_end (&curr->file_list); )
-    {
-      felem = list_entry (e, struct file_elem, f_elem);
-      e = list_next (e);
-      file_close (felem->file);
-      list_remove (&felem->f_elem);
-      free (felem);
-    }
-  //printf("end of process exit \n");
 }
 
 /* Sets up the CPU for running user code in the current
@@ -597,6 +603,10 @@ load_segment (struct file *file, off_t ofs, uint8_t *upage,
          and zero the final PAGE_ZERO_BYTES bytes. */
       size_t page_read_bytes = read_bytes < PGSIZE ? read_bytes : PGSIZE;
       size_t page_zero_bytes = PGSIZE - page_read_bytes;
+
+      
+
+
       uint8_t *kpage;
       /* Get a page of memory. */
 
@@ -604,8 +614,10 @@ load_segment (struct file *file, off_t ofs, uint8_t *upage,
       kpage = palloc_get_page (PAL_USER);
       #endif
   
-      #ifdef VM 
+      #ifdef VM
+      //kpage = palloc_get_page(PAL_USER); 
       kpage = frame_palloc_get_page (PAL_USER, upage);
+      page_create(kpage, upage);
       #endif
 
       //printf("kpage : %p\n", kpage);
@@ -613,10 +625,16 @@ load_segment (struct file *file, off_t ofs, uint8_t *upage,
       if (kpage == NULL)
         return false;
 
+
+//printf("page read bytes : %zu\n", (int)page_read_bytes);
+//     printf("ofs : %zu\n",(int)ofs);
+//      printf("kpage : %zu\n",(int)upage);
       /* Load this page. */
       if (file_read (file, kpage, page_read_bytes) != (int) page_read_bytes)
         {
-          //palloc_free_page (kpage);
+          #ifdef USERPROG
+          palloc_free_page (kpage);
+          #endif
 
           #ifdef VM 
           frame_palloc_free_page (kpage);
